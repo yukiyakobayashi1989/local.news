@@ -20,6 +20,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::get('news/create', 'Admin\NewsController@add');
   Route::post('news/create', 'Admin\NewsController@create'); # 追記
   Route::get('news', 'Admin\NewsController@index');//php16追記
+  //追加課題
+  //Route::get('news', 'Admin\NewsController@sort');
+
   Route::get('news/edit', 'Admin\NewsController@edit');
   Route::post('news/edit', 'Admin\NewsController@update');
   Route::get('news/delete', 'Admin\NewsController@delete');
@@ -38,5 +41,5 @@ Route::get('/', 'NewsController@index');
 
 //追加課題
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-  Route::get('news', 'Admin\NewsController@sort');
+
 });
