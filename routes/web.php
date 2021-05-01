@@ -35,3 +35,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'NewsController@index');
+
+//追加課題
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+  Route::get('news', 'Admin\NewsController@sort');
+});
