@@ -10,7 +10,6 @@
             <div class="col-md-4">
                 <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
             </div>
-            //追加課題
             <div class="col-md-4">
                 <a href="{{ action('Admin\NewsController@sort') }}" role="button" class="btn btn-primary">並び替え</a>
             </div>
