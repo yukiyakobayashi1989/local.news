@@ -95,7 +95,7 @@ class NewsController extends Controller
         return redirect('admin/news/');
     }
 
-    //ソート機能追加課題
+    //ソート機能追加課題　
     public function sort(Request $request)
       {
         $news = News::orderBy('id','desc')->post();
