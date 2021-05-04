@@ -98,7 +98,7 @@ class NewsController extends Controller
     //ソート機能追加課題　
     public function sort(Request $request)
       {
-        $news = News::orderBy('id','desc')->post();
+        $news = News::orderBy('title','desc')->post();
         return view('admin/news/' ['news'->$news]);
       }
 }
