@@ -51,7 +51,15 @@ class NewsController extends Controller
       } else {
           $posts = News::all();
       }
-      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      $sort_cond  = '';
+
+      $cond_maintext = $request->cond_maintext;
+      if ($cond_maintext != '') {
+          $posts = News::where('body', $cond_maintext)->get();
+      } else {
+          $posts = News::all();
+      }
+      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title, 'sort_cond' => $sort_cond, 'cond_maintext' => $cond_maintext]);
   }
 
   // 以下を追記

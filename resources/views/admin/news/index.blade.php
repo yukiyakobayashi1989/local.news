@@ -30,6 +30,20 @@
                     </div>
                 </form>
             </div>
+            <div class="col-md-12">
+                <form action="{{ action('Admin\NewsController@index') }}" method="get">
+                    <div class="form-group row">
+                        <label class="col-md-3">本文</label>
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" name="cond_maintext" value={{ $cond_maintext }}>
+                        </div>
+                        <div class="col-md-2">
+                            {{ csrf_field() }}
+                            <input type="submit" class="btn btn-primary" value="   検索   ">
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="row">
             <div class="admin-news col-md-12 mx-auto">
