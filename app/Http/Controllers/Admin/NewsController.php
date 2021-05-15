@@ -115,6 +115,7 @@ class NewsController extends Controller
           $sort_cond = '昇順';
         }
         $cond_title  = '';
-        return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title, 'sort_cond' => $sort_cond]);
+        $cond_maintext = '';
+        return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title, 'sort_cond' => $sort_cond, 'cond_maintext' => $cond_maintext]);
     }
 }
