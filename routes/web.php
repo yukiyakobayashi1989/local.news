@@ -21,7 +21,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
   Route::post('news/create', 'Admin\NewsController@create'); # 追記
   Route::get('news', 'Admin\NewsController@index');//php16追記
   //ソート機能追加課題
-  Route::post('news', 'Admin\NewsController@sort');
+  Route::get('news/sort', 'Admin\NewsController@sort');
 
   Route::get('news/edit', 'Admin\NewsController@edit');
   Route::post('news/edit', 'Admin\NewsController@update');

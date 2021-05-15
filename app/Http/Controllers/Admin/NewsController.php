@@ -97,8 +97,16 @@ class NewsController extends Controller
 
     //ソート機能追加課題
     public function sort(Request $request)
-      {
-        $news = News::orderBy('id','desc')->post();
-        return view('admin/news/' ['news'->$news]);
-      }
+    {
+        $sort_cond = $request->sort_cond;
+        if ($sort_cond == '' || $sort_cond == '昇順' ){
+           $posts = News::orderBy('title','desc')->get();
+           $sort_cond = '降順';
+        }else{
+          $posts = News::orderBy('title','asc')->get();
+          $sort_cond = '昇順';
+        }
+        $cond_title  = '';
+        return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title, 'sort_cond' => $sort_cond]);
+    }
 }
