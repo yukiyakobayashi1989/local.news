@@ -46,19 +46,15 @@ class NewsController extends Controller
   public function index(Request $request)
   {
       $cond_title = $request->cond_title;
+      $cond_maintext = $request->cond_maintext;
       if ($cond_title != '') {
           $posts = News::where('title', $cond_title)->get();
-      } else {
+      }elseif($cond_maintext != ''){
+          $posts = News::where('body', $cond_maintext)->get();
+      }else {
           $posts = News::all();
       }
       $sort_cond  = '';
-
-      $cond_maintext = $request->cond_maintext;
-      if ($cond_maintext != '') {
-          $posts = News::where('body', $cond_maintext)->get();
-      } else {
-          $posts = News::all();
-      }
       return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title, 'sort_cond' => $sort_cond, 'cond_maintext' => $cond_maintext]);
   }
 
